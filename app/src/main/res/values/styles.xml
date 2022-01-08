@@ -7,4 +7,12 @@
         <item name="android:singleLine">true</item>
         <item name="android:ellipsize">end</item>
     </style>
+
+    <style name="CardViewStyle">
+        <item name="cardBackgroundColor">@color/grey</item>
+        <item name="cardCornerRadius">@dimen/dp_30</item>
+        <item name="cardUseCompatPadding">true</item>
+        <item name="contentPadding">@dimen/dp_10</item>
+        <item name="cardElevation">@dimen/dp_10</item>
+    </style>
 </resources>

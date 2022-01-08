@@ -12,57 +12,111 @@
         android:gravity="center_horizontal"
         android:orientation="vertical">
 
-        <app.futured.donut.DonutProgressView
-            android:id="@+id/day_donut"
-            android:layout_width="@dimen/donut_size"
-            android:layout_height="@dimen/donut_size"
-            app:donut_bgLineColor="@color/grey"
-            app:donut_gapAngle="270"
-            app:donut_gapWidth="0"
-            app:donut_strokeWidth="16dp" />
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <include
-            android:id="@+id/day"
-            layout="@layout/item_life" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        <app.futured.donut.DonutProgressView
-            android:id="@+id/week_donut"
-            android:layout_width="@dimen/donut_size"
-            android:layout_height="@dimen/donut_size"
-            app:donut_bgLineColor="@color/grey"
-            app:donut_gapAngle="270"
-            app:donut_gapWidth="0"
-            app:donut_strokeWidth="16dp" />
+                <app.futured.donut.DonutProgressView
+                    android:id="@+id/day_donut"
+                    android:layout_width="@dimen/donut_size"
+                    android:layout_height="@dimen/donut_size"
+                    app:donut_bgLineColor="@color/circle_progress_color"
+                    app:donut_gapAngle="270"
+                    app:donut_gapWidth="0"
+                    app:donut_strokeWidth="16dp" />
 
-        <include
-            android:id="@+id/week"
-            layout="@layout/item_life" />
+                <include
+                    android:id="@+id/day"
+                    layout="@layout/item_life" />
+            </LinearLayout>
 
-        <app.futured.donut.DonutProgressView
-            android:id="@+id/month_donut"
-            android:layout_width="@dimen/donut_size"
-            android:layout_height="@dimen/donut_size"
-            app:donut_bgLineColor="@color/grey"
-            app:donut_gapAngle="270"
-            app:donut_gapWidth="0"
-            app:donut_strokeWidth="16dp" />
+        </androidx.cardview.widget.CardView>
 
-        <include
-            android:id="@+id/month"
-            layout="@layout/item_life" />
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-        <app.futured.donut.DonutProgressView
-            android:id="@+id/year_donut"
-            android:layout_width="@dimen/donut_size"
-            android:layout_height="@dimen/donut_size"
-            app:donut_bgLineColor="@color/grey"
-            app:donut_gapAngle="270"
-            app:donut_gapWidth="0"
-            app:donut_strokeWidth="16dp" />
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
 
-        <include
-            android:id="@+id/year"
-            layout="@layout/item_life" />
+                <app.futured.donut.DonutProgressView
+                    android:id="@+id/week_donut"
+                    android:layout_width="@dimen/donut_size"
+                    android:layout_height="@dimen/donut_size"
+                    app:donut_bgLineColor="@color/circle_progress_color"
+                    app:donut_gapAngle="270"
+                    app:donut_gapWidth="0"
+                    app:donut_strokeWidth="16dp" />
+
+                <include
+                    android:id="@+id/week"
+                    layout="@layout/item_life" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <app.futured.donut.DonutProgressView
+                    android:id="@+id/month_donut"
+                    android:layout_width="@dimen/donut_size"
+                    android:layout_height="@dimen/donut_size"
+                    app:donut_bgLineColor="@color/circle_progress_color"
+                    app:donut_gapAngle="270"
+                    app:donut_gapWidth="0"
+                    app:donut_strokeWidth="16dp" />
+
+                <include
+                    android:id="@+id/month"
+                    layout="@layout/item_life" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <app.futured.donut.DonutProgressView
+                    android:id="@+id/year_donut"
+                    android:layout_width="@dimen/donut_size"
+                    android:layout_height="@dimen/donut_size"
+                    app:donut_bgLineColor="@color/circle_progress_color"
+                    app:donut_gapAngle="270"
+                    app:donut_gapWidth="0"
+                    app:donut_strokeWidth="16dp" />
+
+                <include
+                    android:id="@+id/year"
+                    layout="@layout/item_life" />
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
     </LinearLayout>
 

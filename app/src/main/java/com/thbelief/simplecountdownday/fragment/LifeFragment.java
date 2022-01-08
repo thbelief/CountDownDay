@@ -58,12 +58,20 @@ public class LifeFragment extends BaseFragment {
     }
 
     @Override
-    public void onFragmentResume(boolean isActivityResume) {
-        super.onFragmentResume(isActivityResume);
+    public void onStart() {
+        super.onStart();
+        initNumberProgressData();
         if (mIsFirstResume) {
             mIsFirstResume = false;
             initCircleProgressData();
         }
+    }
+
+    @Override
+    public void onDestroyView() {
+        super.onDestroyView();
+        // 重置状态
+        mIsFirstResume = true;
     }
 
     private void initData() {
@@ -105,6 +113,9 @@ public class LifeFragment extends BaseFragment {
     }
 
     private void initCircleProgressData() {
+        if (mProgressDay == null || mProgressWeek == null || mProgressMonth == null | mProgressYear == null) {
+            return;
+        }
         mProgressDay.addAmount(ResourceHelper.getString(R.string.today), mProgressFloat[0], ResourceHelper.getColor(R.color.red_active));
         mProgressWeek.addAmount(ResourceHelper.getString(R.string.week), mProgressFloat[1], ResourceHelper.getColor(R.color.yellow_active));
         mProgressMonth.addAmount(ResourceHelper.getString(R.string.month), mProgressFloat[2], ResourceHelper.getColor(R.color.blue_active));

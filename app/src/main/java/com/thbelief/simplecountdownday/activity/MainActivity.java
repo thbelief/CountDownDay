@@ -53,7 +53,7 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
             @Override
             public void onNavigationChanged(View view, int position) {
                 VibrationHelper.clickVibration();
-                mViewPager.setCurrentItem(position);
+                mViewPager.setCurrentItem(position,true);
             }
         });
 
