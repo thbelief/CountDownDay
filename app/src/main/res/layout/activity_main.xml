@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".activity.MainActivity">
+
+    <com.gauravk.bubblenavigation.BubbleNavigationConstraintView
+        android:id="@+id/floating_top_bar_navigation"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp_sp_18"
+        android:layout_marginLeft="@dimen/dp_sp_18"
+        android:layout_marginTop="@dimen/dp_sp_18"
+        android:layout_marginEnd="@dimen/dp_sp_18"
+        android:layout_marginRight="@dimen/dp_sp_18"
+        android:background="@drawable/rounded_rect_white"
+        android:elevation="@dimen/dp_sp_8"
+        android:padding="@dimen/dp_sp_16"
+        app:bnc_mode="packed"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_home_page"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_active="true"
+            app:bt_colorActive="@color/red_active"
+            app:bt_colorInactive="@color/red_inactive"
+            app:bt_icon="@drawable/ic_home"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/red_bg_light"
+            app:bt_title="@string/home_page" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_life"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/blue_active"
+            app:bt_colorInactive="@color/blue_inactive"
+            app:bt_icon="@drawable/ic_day"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/blue_bg_light"
+            app:bt_title="@string/life" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_history"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/blue_grey_active"
+            app:bt_colorInactive="@color/blue_grey_inactive"
+            app:bt_icon="@drawable/ic_history"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/blue_grey_bg_light"
+            app:bt_title="@string/history" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_settings"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/green_active"
+            app:bt_colorInactive="@color/green_inactive"
+            app:bt_icon="@drawable/ic_settings"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/green_bg_light"
+            app:bt_title="@string/settings" />
+
+    </com.gauravk.bubblenavigation.BubbleNavigationConstraintView>
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/view_pager"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
