@@ -1,13 +1,69 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:gravity="center"
-    android:orientation="vertical">
+    android:layout_height="match_parent">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_50"
-        android:text="@string/life" />
-</LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginStart="@dimen/item_margin"
+        android:layout_marginEnd="@dimen/item_margin"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+
+        <app.futured.donut.DonutProgressView
+            android:id="@+id/day_donut"
+            android:layout_width="@dimen/donut_size"
+            android:layout_height="@dimen/donut_size"
+            app:donut_bgLineColor="@color/grey"
+            app:donut_gapAngle="270"
+            app:donut_gapWidth="0"
+            app:donut_strokeWidth="16dp" />
+
+        <include
+            android:id="@+id/day"
+            layout="@layout/item_life" />
+
+        <app.futured.donut.DonutProgressView
+            android:id="@+id/week_donut"
+            android:layout_width="@dimen/donut_size"
+            android:layout_height="@dimen/donut_size"
+            app:donut_bgLineColor="@color/grey"
+            app:donut_gapAngle="270"
+            app:donut_gapWidth="0"
+            app:donut_strokeWidth="16dp" />
+
+        <include
+            android:id="@+id/week"
+            layout="@layout/item_life" />
+
+        <app.futured.donut.DonutProgressView
+            android:id="@+id/month_donut"
+            android:layout_width="@dimen/donut_size"
+            android:layout_height="@dimen/donut_size"
+            app:donut_bgLineColor="@color/grey"
+            app:donut_gapAngle="270"
+            app:donut_gapWidth="0"
+            app:donut_strokeWidth="16dp" />
+
+        <include
+            android:id="@+id/month"
+            layout="@layout/item_life" />
+
+        <app.futured.donut.DonutProgressView
+            android:id="@+id/year_donut"
+            android:layout_width="@dimen/donut_size"
+            android:layout_height="@dimen/donut_size"
+            app:donut_bgLineColor="@color/grey"
+            app:donut_gapAngle="270"
+            app:donut_gapWidth="0"
+            app:donut_strokeWidth="16dp" />
+
+        <include
+            android:id="@+id/year"
+            layout="@layout/item_life" />
+
+    </LinearLayout>
+
+</androidx.core.widget.NestedScrollView>

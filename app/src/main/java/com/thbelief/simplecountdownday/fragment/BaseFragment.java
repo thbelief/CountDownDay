@@ -1,9 +1,14 @@
 package com.thbelief.simplecountdownday.fragment;
 
+import android.content.Context;
+
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import java.util.List;
+
+import butterknife.Unbinder;
 
 /**
  * Author:thbelief
@@ -26,8 +31,22 @@ public class BaseFragment extends Fragment {
      */
     private boolean mIsVisible = false;
 
-    public BaseFragment(int layoutId) {
-        super(layoutId);
+    public Unbinder mUnbinder;
+
+    public Context mContext;
+
+    @Override
+    public void onAttach(@NonNull Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
+    public void onDestroyView() {
+        if (mUnbinder != null) {
+            mUnbinder.unbind();
+        }
+        super.onDestroyView();
     }
 
     @Override

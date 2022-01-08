@@ -443,4 +443,8 @@
     <dimen name="sp_48">48sp</dimen>
     <dimen name="sp_49">49sp</dimen>
     <dimen name="sp_50">50sp</dimen>
+
+    <!-- 自定义的dimen -->
+    <dimen name="item_margin">20dp</dimen>
+    <dimen name="donut_size">200dp</dimen>
 </resources>

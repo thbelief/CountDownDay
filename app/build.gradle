@@ -45,4 +45,8 @@ dependencies {
     implementation 'com.gauravk.bubblenavigation:bubblenavigation:1.0.7'
 
     implementation 'com.github.GrenderG:Toasty:1.5.2'
+
+    implementation 'com.daimajia.numberprogressbar:library:1.4@aar'
+
+    implementation("app.futured.donut:donut:2.2.0")
 }
