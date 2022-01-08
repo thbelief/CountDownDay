@@ -51,4 +51,10 @@ dependencies {
     implementation("app.futured.donut:donut:2.2.0")
 
     implementation 'io.github.bitvale:switcher:1.1.2'
+
+    implementation 'com.github.arcadefire:nice-spinner:1.4.4'
+
+    implementation 'me.shaohui:bottomdialog:1.1.9'
+
+
 }

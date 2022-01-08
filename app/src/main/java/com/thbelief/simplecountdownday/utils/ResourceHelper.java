@@ -1,6 +1,7 @@
 package com.thbelief.simplecountdownday.utils;
 
 import android.content.Context;
+import android.graphics.drawable.Drawable;
 
 import com.thbelief.simplecountdownday.application.Application;
 
@@ -20,5 +21,13 @@ public class ResourceHelper {
 
     public static int getColor(int id) {
         return mContext.getResources().getColor(id);
+    }
+
+    public static Drawable getDrawable(int id) {
+        return mContext.getResources().getDrawable(id);
+    }
+
+    public static float getDimen(int id){
+        return mContext.getResources().getDimensionPixelOffset(id);
     }
 }
