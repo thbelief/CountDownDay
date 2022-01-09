@@ -9,11 +9,15 @@ import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.cardview.widget.CardView;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
+
+import java.util.Date;
 
 import app.futured.donut.DonutProgressView;
 import butterknife.BindView;
@@ -27,6 +31,8 @@ import butterknife.ButterKnife;
  * @author thbelief
  */
 public class LifeFragment extends BaseFragment {
+    @BindView(R.id.life)
+    LinearLayout mLayoutLife;
     @BindView(R.id.day)
     LinearLayout mLayoutDay;
     @BindView(R.id.week)
@@ -35,6 +41,8 @@ public class LifeFragment extends BaseFragment {
     LinearLayout mLayoutMonth;
     @BindView(R.id.year)
     LinearLayout mLayoutYear;
+    @BindView(R.id.life_donut)
+    DonutProgressView mProgressLife;
     @BindView(R.id.day_donut)
     DonutProgressView mProgressDay;
     @BindView(R.id.week_donut)
@@ -43,8 +51,10 @@ public class LifeFragment extends BaseFragment {
     DonutProgressView mProgressMonth;
     @BindView(R.id.year_donut)
     DonutProgressView mProgressYear;
+    @BindView(R.id.layout_life_progress)
+    CardView mLifeCardView;
 
-    private Float[] mProgressFloat = new Float[]{0f, 0f, 0f, 0f};
+    private Float[] mProgressFloat = new Float[]{0f, 0f, 0f, 0f, 0f};
 
     private boolean mIsFirstResume = true;
 
@@ -65,6 +75,11 @@ public class LifeFragment extends BaseFragment {
             mIsFirstResume = false;
             initCircleProgressData();
         }
+        if (SharedPreferenceHelper.isLifeProgress()) {
+            mLifeCardView.setVisibility(View.VISIBLE);
+        } else {
+            mLifeCardView.setVisibility(View.GONE);
+        }
     }
 
     @Override
@@ -75,19 +90,23 @@ public class LifeFragment extends BaseFragment {
     }
 
     private void initData() {
+        ((TextView) mLayoutLife.findViewById(R.id.name)).setText(ResourceHelper.getString(R.string.life));
         ((TextView) mLayoutDay.findViewById(R.id.name)).setText(ResourceHelper.getString(R.string.today));
         ((TextView) mLayoutWeek.findViewById(R.id.name)).setText(ResourceHelper.getString(R.string.week));
         ((TextView) mLayoutMonth.findViewById(R.id.name)).setText(ResourceHelper.getString(R.string.month));
         ((TextView) mLayoutYear.findViewById(R.id.name)).setText(ResourceHelper.getString(R.string.year));
 
+        NumberProgressBar life = ((NumberProgressBar) mLayoutLife.findViewById(R.id.number_progress_bar));
         NumberProgressBar today = ((NumberProgressBar) mLayoutDay.findViewById(R.id.number_progress_bar));
         NumberProgressBar week = ((NumberProgressBar) mLayoutWeek.findViewById(R.id.number_progress_bar));
         NumberProgressBar month = ((NumberProgressBar) mLayoutMonth.findViewById(R.id.number_progress_bar));
         NumberProgressBar year = ((NumberProgressBar) mLayoutYear.findViewById(R.id.number_progress_bar));
+        life.setReachedBarColor(ResourceHelper.getColor(R.color.cyanea_primary));
         today.setReachedBarColor(ResourceHelper.getColor(R.color.red_active));
         week.setReachedBarColor(ResourceHelper.getColor(R.color.yellow_active));
         month.setReachedBarColor(ResourceHelper.getColor(R.color.blue_active));
         year.setReachedBarColor(ResourceHelper.getColor(R.color.green_active));
+        life.setProgressTextColor(ResourceHelper.getColor(R.color.cyanea_primary));
         today.setProgressTextColor(ResourceHelper.getColor(R.color.red_active));
         week.setProgressTextColor(ResourceHelper.getColor(R.color.yellow_active));
         month.setProgressTextColor(ResourceHelper.getColor(R.color.blue_active));
@@ -97,10 +116,12 @@ public class LifeFragment extends BaseFragment {
     }
 
     private void initNumberProgressData() {
+        NumberProgressBar life = ((NumberProgressBar) mLayoutLife.findViewById(R.id.number_progress_bar));
         NumberProgressBar today = ((NumberProgressBar) mLayoutDay.findViewById(R.id.number_progress_bar));
         NumberProgressBar week = ((NumberProgressBar) mLayoutWeek.findViewById(R.id.number_progress_bar));
         NumberProgressBar month = ((NumberProgressBar) mLayoutMonth.findViewById(R.id.number_progress_bar));
         NumberProgressBar year = ((NumberProgressBar) mLayoutYear.findViewById(R.id.number_progress_bar));
+        life.setProgress(DateUtil.getProgressLife());
         today.setProgress(DateUtil.getProportionDay());
         week.setProgress(DateUtil.getProportionWeek());
         month.setProgress(DateUtil.getProportionMonth());
@@ -110,6 +131,7 @@ public class LifeFragment extends BaseFragment {
         mProgressFloat[1] = ((float) DateUtil.getProportionWeek()) / 100f;
         mProgressFloat[2] = ((float) DateUtil.getProportionMonth()) / 100f;
         mProgressFloat[3] = ((float) DateUtil.getProportionYear()) / 100f;
+        mProgressFloat[4] = ((float) DateUtil.getProgressLife()) / 100f;
     }
 
     private void initCircleProgressData() {
@@ -120,6 +142,7 @@ public class LifeFragment extends BaseFragment {
         mProgressWeek.addAmount(ResourceHelper.getString(R.string.week), mProgressFloat[1], ResourceHelper.getColor(R.color.yellow_active));
         mProgressMonth.addAmount(ResourceHelper.getString(R.string.month), mProgressFloat[2], ResourceHelper.getColor(R.color.blue_active));
         mProgressYear.addAmount(ResourceHelper.getString(R.string.year), mProgressFloat[3], ResourceHelper.getColor(R.color.green_active));
+        mProgressLife.addAmount(ResourceHelper.getString(R.string.life), mProgressFloat[4], ResourceHelper.getColor(R.color.cyanea_primary));
     }
 
 }

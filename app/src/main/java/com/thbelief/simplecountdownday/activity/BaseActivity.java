@@ -6,36 +6,46 @@ import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
-import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 
+import com.jaredrummler.cyanea.app.CyaneaAppCompatActivity;
 import com.thbelief.simplecountdownday.R;
-
-import butterknife.ButterKnife;
 
 /**
  * Author:thbelief
  * Date:2022/1/8 12:23 下午
  * Description:BaseActivity 用于基本Activity
+ *
  * @author thbelief
  */
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends CyaneaAppCompatActivity {
+
+    public boolean mIsDisplayBackIcon = false;
+    public int mStatusColor = R.color.cyanea_primary;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        initActionBar();
         immersiveStatusBar();
+    }
+
+    public void initActionBar() {
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setDisplayHomeAsUpEnabled(mIsDisplayBackIcon);
+        }
     }
 
     /**
      * 沉浸式状态栏
      */
-    private void immersiveStatusBar() {
+    public void immersiveStatusBar() {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             Window window = getWindow();
             window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
-            window.setStatusBarColor(ContextCompat.getColor(this, R.color.white));
+            window.setStatusBarColor(ContextCompat.getColor(this, mStatusColor));
             setDarkStatusIcon(true);
         }
     }

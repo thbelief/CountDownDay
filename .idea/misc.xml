@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.25462962962962965" />
+        <entry key="../../.gradle/caches/transforms-3/ec24121fe336e11852657eeaaacdcfe1/transformed/jetified-cyanea-1.0.2/res/layout/cyanea_item_theme.xml" value="0.1284056508577195" />
+        <entry key="../../.gradle/caches/transforms-3/ec24121fe336e11852657eeaaacdcfe1/transformed/jetified-cyanea-1.0.2/res/layout/cyanea_theme_picker.xml" value="0.1284056508577195" />
+        <entry key="../../.gradle/caches/transforms-3/ec24121fe336e11852657eeaaacdcfe1/transformed/jetified-cyanea-1.0.2/res/xml/pref_cyanea.xml" value="0.1284056508577195" />
         <entry key="app/src/main/res/drawable/ic__530802_cog_gear_general_machine_office_icon.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/ic_app.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/ic_day.xml" value="0.3020833333333333" />
@@ -14,9 +17,16 @@
         <entry key="app/src/main/res/drawable/ic_list.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/ic_playlist.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/ic_progress.xml" value="0.3020833333333333" />
+        <entry key="app/src/main/res/drawable/ic_settings.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/ic_time_line.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/icon.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/rounded_rect_white.xml" value="0.3020833333333333" />
+        <entry key="app/src/main/res/drawable/select_press.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shape_circle_blue.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shape_circle_bottom.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shape_item_bottom.xml" value="0.205" />
+        <entry key="app/src/main/res/layout/activity_life_progress.xml" value="0.1284056508577195" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/drawer.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/fragment_history.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/fragment_home_page.xml" value="0.13647830474268416" />
@@ -24,9 +34,18 @@
         <entry key="app/src/main/res/layout/fragment_list.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/fragment_recyclerview.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/fragment_settings.xml" value="0.13647830474268416" />
+        <entry key="app/src/main/res/layout/fragment_theme_settings.xml" value="0.1284056508577195" />
+        <entry key="app/src/main/res/layout/fragment_today.xml" value="0.1284056508577195" />
         <entry key="app/src/main/res/layout/fragment_webview.xml" value="0.13647830474268416" />
         <entry key="app/src/main/res/layout/header_logo_2.xml" value="0.13647830474268416" />
+        <entry key="app/src/main/res/layout/item_bottom_button.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/item_bottom_dialog.xml" value="0.2870840383530739" />
         <entry key="app/src/main/res/layout/item_life.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/layout_select_bottom_dialog.xml" value="0.1284056508577195" />
+        <entry key="app/src/main/res/layout/menu_bottom_view.xml" value="0.8228062616532607" />
+        <entry key="app/src/main/res/layout/view_click_bottom.xml" value="1.0566817128694383" />
+        <entry key="app/src/main/res/xml-v26/fragment_settings.xml" value="0.1284056508577195" />
+        <entry key="app/src/main/res/xml/fragment_settings.xml" value="0.1284056508577195" />
       </map>
     </option>
   </component>

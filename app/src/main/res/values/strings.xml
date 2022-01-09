@@ -8,5 +8,35 @@
     <string name="week">本周</string>
     <string name="month">本月</string>
     <string name="year">本年</string>
-
+    <string name="week_beginning_day">周起始日</string>
+    <string name="week_beginning_day_summary">选择周六或者周日作为周起始日</string>
+    <string name="saturday">周六</string>
+    <string name="sunday">周日</string>
+    <string name="sure">确定</string>
+    <string name="cancel">取消</string>
+    <string name="myself_life_tips">生命进度条</string>
+    <string name="myself_life_tips_summary">展示生命进度条</string>
+    <string name="change_theme">主题</string>
+    <string name="change_theme_summary">主题相关设置</string>
+    <string name="pref_category_appearance">外观</string>
+    <string name="label_theme_picker">主题选择器</string>
+    <string name="pref_accent_color_summary">用于次一级颜色</string>
+    <string name="pref_accent_color_title">次要颜色</string>
+    <string name="pref_background_color_summary">填充背景的颜色</string>
+    <string name="pref_background_color_title">背景颜色</string>
+    <string name="pref_colored_navigation_bar_summary">添加主颜色到导航栏</string>
+    <string name="pref_colored_navigation_bar_title">导航栏颜色</string>
+    <string name="pref_primary_color_summary">用于主要颜色</string>
+    <string name="pref_primary_color_title">主要颜色</string>
+    <string name="pref_theme_summary">选择一个预设主题</string>
+    <string name="pref_theme_title">主题</string>
+    <string name="vibrate_setting">振动反馈</string>
+    <string name="birth_year">出生年</string>
+    <string name="predict_alive_year">预期生命</string>
+    <string name="default_year">2000</string>
+    <string name="default_life">100</string>
+    <string name="to_set_up">待设置</string>
+    <string name="tips_life_progress">输入完整之后开关可用</string>
+    <string name="tips_life_progress_enable">开关可用</string>
+    <string name="tips_input_error_year">请输入本年之前时间</string>
 </resources>

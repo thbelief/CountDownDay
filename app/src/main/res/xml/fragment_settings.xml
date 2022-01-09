@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+    <PreferenceCategory>
+        <Preference
+            android:defaultValue="@string/saturday"
+            android:iconSpaceReserved="false"
+            android:key="week_start"
+            android:summary="@string/week_beginning_day_summary"
+            android:title="@string/week_beginning_day"
+            tools:targetApi="o" />
+
+        <SwitchPreference
+            android:defaultValue="false"
+            android:iconSpaceReserved="false"
+            android:key="life_progress"
+            android:summary="@string/myself_life_tips_summary"
+            android:title="@string/myself_life_tips"
+            tools:targetApi="o" />
+
+        <Preference
+            android:iconSpaceReserved="false"
+            android:key="theme"
+            android:summary="@string/change_theme_summary"
+            android:title="@string/change_theme"
+            tools:targetApi="o" />
+    </PreferenceCategory>
+</PreferenceScreen>

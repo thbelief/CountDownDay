@@ -14,6 +14,35 @@
 
         <androidx.cardview.widget.CardView
             style="@style/CardViewStyle"
+            android:id="@+id/layout_life_progress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="gone">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <app.futured.donut.DonutProgressView
+                    android:id="@+id/life_donut"
+                    android:layout_width="@dimen/donut_size"
+                    android:layout_height="@dimen/donut_size"
+                    app:donut_bgLineColor="@color/circle_progress_color"
+                    app:donut_gapAngle="270"
+                    app:donut_gapWidth="0"
+                    app:donut_strokeWidth="16dp" />
+
+                <include
+                    android:id="@+id/life"
+                    layout="@layout/item_life" />
+            </LinearLayout>
+
+        </androidx.cardview.widget.CardView>
+
+        <androidx.cardview.widget.CardView
+            style="@style/CardViewStyle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 

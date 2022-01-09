@@ -59,6 +59,17 @@
             app:bt_title="@string/history" />
 
         <com.gauravk.bubblenavigation.BubbleToggleView
+            android:id="@+id/item_today"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:bt_colorActive="@color/yellow_active"
+            app:bt_colorInactive="@color/yellow_inactive"
+            app:bt_icon="@drawable/ic_day"
+            app:bt_shape="@drawable/rounded_rect"
+            app:bt_shapeColor="@color/yellow_bg_light"
+            app:bt_title="@string/today" />
+
+        <com.gauravk.bubblenavigation.BubbleToggleView
             android:id="@+id/item_settings"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

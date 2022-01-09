@@ -1,5 +1,7 @@
 package com.thbelief.simplecountdownday.utils;
 
+import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
+
 import java.util.Calendar;
 import java.util.Date;
 
@@ -23,7 +25,8 @@ public class DateUtil {
     }
 
     public static int getProportionWeek() {
-        return (int) Math.rint((((double) mCalendar.get(Calendar.DAY_OF_WEEK)) / 7.00) * 100.00);
+        int curDay = SharedPreferenceHelper.isWeekStartFromSunday() ? mCalendar.get(Calendar.DAY_OF_WEEK) : mCalendar.get(Calendar.DAY_OF_WEEK) + 1;
+        return (int) Math.rint((((double) curDay) / 7.00) * 100.00);
     }
 
     public static int getProportionMonth() {
@@ -32,6 +35,10 @@ public class DateUtil {
 
     public static int getProportionYear() {
         return (int) Math.rint((((double) mCalendar.get(Calendar.DAY_OF_YEAR)) / ((double) getYearDays())) * 100.00);
+    }
+
+    public static int getProgressLife() {
+        return (int) Math.rint(((double) (mCalendar.get(Calendar.YEAR) - SharedPreferenceHelper.getBirthYear()) / (double) SharedPreferenceHelper.getPredictYear()) * 100.00);
     }
 
     //判断闰年

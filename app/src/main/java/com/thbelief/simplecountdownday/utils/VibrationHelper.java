@@ -5,6 +5,7 @@ import static android.content.Context.VIBRATOR_SERVICE;
 import android.os.Vibrator;
 
 import com.thbelief.simplecountdownday.application.Application;
+import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 
 /**
  * Author:thbelief
@@ -30,6 +31,9 @@ public class VibrationHelper {
     }
 
     public static void clickVibration() {
+        if (!SharedPreferenceHelper.isVibration()) {
+            return;
+        }
         getInstance().vibrate(TIME_VIBRATION_CLICK);
     }
 }

@@ -17,6 +17,7 @@ import com.thbelief.simplecountdownday.fragment.HistoryFragment;
 import com.thbelief.simplecountdownday.fragment.HomePageFragment;
 import com.thbelief.simplecountdownday.fragment.LifeFragment;
 import com.thbelief.simplecountdownday.fragment.SettingsFragment;
+import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
@@ -44,6 +45,7 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        mStatusColor = R.color.cyanea_background_light;
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -53,7 +55,7 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
             @Override
             public void onNavigationChanged(View view, int position) {
                 VibrationHelper.clickVibration();
-                mViewPager.setCurrentItem(position,true);
+                mViewPager.setCurrentItem(position, true);
             }
         });
 
@@ -64,6 +66,7 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
         mFragmentList.add(new HomePageFragment());
         mFragmentList.add(new LifeFragment());
         mFragmentList.add(new HistoryFragment());
+        mFragmentList.add(new TodayFragment());
         mFragmentList.add(new SettingsFragment());
         FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
         mViewPager.setAdapter(fragmentPagerAdapter);
