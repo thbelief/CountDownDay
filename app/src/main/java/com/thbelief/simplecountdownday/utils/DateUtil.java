@@ -38,6 +38,9 @@ public class DateUtil {
     }
 
     public static int getProgressLife() {
+        if ((SharedPreferenceHelper.getBirthYear() + SharedPreferenceHelper.getPredictYear()) <= mCalendar.get(Calendar.YEAR)) {
+            return 100;
+        }
         return (int) Math.rint(((double) (mCalendar.get(Calendar.YEAR) - SharedPreferenceHelper.getBirthYear()) / (double) SharedPreferenceHelper.getPredictYear()) * 100.00);
     }
 

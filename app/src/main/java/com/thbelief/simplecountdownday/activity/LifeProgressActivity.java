@@ -65,7 +65,7 @@ public class LifeProgressActivity extends BaseActivity {
             mBirthYear.setText(SharedPreferenceHelper.getBirthYear() + "");
             mPredictYear.setText(SharedPreferenceHelper.getPredictYear() + "");
             mNumberProgress.setProgress(DateUtil.getProgressLife());
-            mCircleProgress.addAmount(getLocalClassName(), DateUtil.getProgressLife() / 100f, ResourceHelper.getColor(R.color.blue_active));
+            mCircleProgress.addAmount(getLocalClassName(), (float) DateUtil.getProgressLife() / 100f, ResourceHelper.getColor(R.color.blue_active));
         }
         mSwitch.setEnabled(isAllInput());
         mBirthYear.addTextChangedListener(mTextWatcher1);
