@@ -18,6 +18,7 @@ import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.ToastyUtil;
+import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
 import java.util.Calendar;
 import java.util.Objects;
@@ -71,6 +72,7 @@ public class LifeProgressActivity extends BaseActivity {
         mBirthYear.addTextChangedListener(mTextWatcher1);
         mPredictYear.addTextChangedListener(mTextWatcher2);
         mSwitch.setOnCheckedChangeListener(state -> {
+            VibrationHelper.clickVibration();
             SharedPreferenceHelper.setLifeProgress(state);
             return null;
         });
