@@ -8,8 +8,11 @@ import android.view.ViewGroup;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
+import com.github.clans.fab.FloatingActionButton;
+import com.github.clans.fab.FloatingActionMenu;
 import com.thbelief.simplecountdownday.R;
 
+import butterknife.BindView;
 import butterknife.ButterKnife;
 
 /**
@@ -21,6 +24,11 @@ import butterknife.ButterKnife;
  */
 public class HomePageFragment extends BaseFragment {
 
+    @BindView(R.id.float_button_menu)
+    FloatingActionMenu mMenu;
+    @BindView(R.id.edit_button)
+    FloatingActionButton mEdit;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
@@ -29,4 +37,9 @@ public class HomePageFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onFragmentPause(boolean isActivityPause) {
+        super.onFragmentPause(isActivityPause);
+        mMenu.close(true);
+    }
 }

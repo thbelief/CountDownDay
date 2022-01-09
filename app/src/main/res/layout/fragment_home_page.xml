@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:fab="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="center"
     android:orientation="vertical">
 
-    <TextView
+    <com.github.clans.fab.FloatingActionMenu
+        android:id="@+id/float_button_menu"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textSize="@dimen/sp_50"
-        android:text="@string/home_page" />
-</LinearLayout>
+        android:layout_gravity="bottom|right"
+        android:layout_marginEnd="@dimen/item_margin"
+        android:layout_marginBottom="@dimen/item_margin"
+        fab:menu_fab_size="normal"
+        fab:menu_icon="@drawable/fab_add"
+        fab:menu_showShadow="true">
+
+        <com.github.clans.fab.FloatingActionButton
+            android:id="@+id/edit_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_edit"
+            fab:fab_size="mini" />
+
+    </com.github.clans.fab.FloatingActionMenu>
+</FrameLayout>
