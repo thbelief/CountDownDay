@@ -17,8 +17,6 @@ import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 
-import java.util.Date;
-
 import app.futured.donut.DonutProgressView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -142,7 +140,7 @@ public class LifeFragment extends BaseFragment {
         mProgressWeek.addAmount(ResourceHelper.getString(R.string.week), mProgressFloat[1], ResourceHelper.getColor(R.color.yellow_active));
         mProgressMonth.addAmount(ResourceHelper.getString(R.string.month), mProgressFloat[2], ResourceHelper.getColor(R.color.blue_active));
         mProgressYear.addAmount(ResourceHelper.getString(R.string.year), mProgressFloat[3], ResourceHelper.getColor(R.color.green_active));
-        mProgressLife.addAmount(ResourceHelper.getString(R.string.life), mProgressFloat[4], ResourceHelper.getColor(R.color.cyanea_primary));
+        mProgressLife.addAmount(ResourceHelper.getString(R.string.life), mProgressFloat[4], ResourceHelper.getColor(R.color.orange_active));
     }
 
 }
