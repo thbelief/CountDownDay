@@ -17,12 +17,5 @@
         fab:menu_icon="@drawable/fab_add"
         fab:menu_showShadow="true">
 
-        <com.github.clans.fab.FloatingActionButton
-            android:id="@+id/edit_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/ic_edit"
-            fab:fab_size="mini" />
-
     </com.github.clans.fab.FloatingActionMenu>
 </FrameLayout>

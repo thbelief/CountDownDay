@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -13,6 +14,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.thbelief.simplecountdownday.R;
 import com.thbelief.simplecountdownday.application.Application;
 import com.thbelief.simplecountdownday.interfaces.IClick;
+import com.thbelief.simplecountdownday.interfaces.IClickAndButton;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 
 import java.util.ArrayList;
@@ -27,13 +29,17 @@ import java.util.List;
  */
 public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> implements View.OnClickListener {
     private List<String> mOptions = new ArrayList<>();
+    private List<Integer> mIcons = new ArrayList<>();
     private IClick mClick;
+    private boolean mIsNeedBottomButton;
     private final static int TYPE_ITEM = 0;
     private final static int TYPE_BOTTOM = 1;
 
-    public BottomDialogAdapter(List<String> options, IClick click) {
+    public BottomDialogAdapter(List<String> options, IClick click, boolean isNeedBottomButton, List<Integer> iconList) {
         this.mOptions = options;
         this.mClick = click;
+        this.mIsNeedBottomButton = isNeedBottomButton;
+        this.mIcons = iconList;
     }
 
     @NonNull
@@ -56,6 +62,10 @@ public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             myViewHodler.itemView.setOnClickListener(this);
             myViewHodler.mName.setText(mOptions.get(position));
             myViewHodler.pos = position;
+            if (mIcons != null && position < mIcons.size()) {
+                myViewHodler.mIcon.setVisibility(View.VISIBLE);
+                myViewHodler.mIcon.setImageResource(mIcons.get(position));
+            }
         } else {
             BottomViewHodler viewHodler = (BottomViewHodler) holder;
             viewHodler.mCancel.setOnClickListener(this);
@@ -73,13 +83,14 @@ public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
         if (tag instanceof MyViewHodler) {
             MyViewHodler myViewHodler = (MyViewHodler) tag;
             mClick.itemClick(myViewHodler.pos);
-        } else if (tag instanceof Integer) {
+        } else if (mIsNeedBottomButton && tag instanceof Integer && mClick instanceof IClickAndButton) {
+            IClickAndButton listener = (IClickAndButton) mClick;
             switch ((int) tag) {
                 case -1:
-                    mClick.sureClick();
+                    listener.sureClick();
                     break;
                 case -2:
-                    mClick.cancelClick();
+                    listener.cancelClick();
                     break;
                 default:
                     break;
@@ -89,6 +100,9 @@ public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemViewType(int position) {
+        if (!mIsNeedBottomButton) {
+            return TYPE_ITEM;
+        }
         if (position < mOptions.size()) {
             return TYPE_ITEM;
         }
@@ -97,11 +111,13 @@ public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     private class MyViewHodler extends RecyclerView.ViewHolder {
         private TextView mName;
+        private ImageView mIcon;
         private int pos;
 
         public MyViewHodler(@NonNull View itemView) {
             super(itemView);
             mName = itemView.findViewById(R.id.name);
+            mIcon = itemView.findViewById(R.id.icon);
         }
     }
 
@@ -118,6 +134,6 @@ public class BottomDialogAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     @Override
     public int getItemCount() {
-        return mOptions.size() + 1;
+        return mIsNeedBottomButton ? mOptions.size() + 1 : mOptions.size();
     }
 }

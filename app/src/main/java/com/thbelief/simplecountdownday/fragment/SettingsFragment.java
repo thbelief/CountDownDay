@@ -66,7 +66,7 @@ public class SettingsFragment extends BaseFragment implements IClick {
             @Override
             public void onClick(View view) {
                 VibrationHelper.clickVibration();
-                mDialog = new SelectBottomDialog(mOptions, mFragment);
+                mDialog = new SelectBottomDialog(mOptions, mFragment, false, null);
                 mDialog.setFragmentManager(getFragmentManager()).show();
             }
         });
@@ -114,15 +114,4 @@ public class SettingsFragment extends BaseFragment implements IClick {
         mDialog.dismiss();
     }
 
-    @Override
-    public void sureClick() {
-        VibrationHelper.clickVibration();
-        mDialog.dismiss();
-    }
-
-    @Override
-    public void cancelClick() {
-        VibrationHelper.clickVibration();
-        mDialog.dismiss();
-    }
 }

@@ -39,8 +39,8 @@ public class SelectBottomDialog extends BaseBottomDialog {
     private int mHeight = 0;
     private FragmentManager mFragmentManager;
 
-    public SelectBottomDialog(List<String> options, IClick click) {
-        mAdapter = new BottomDialogAdapter(options, click);
+    public SelectBottomDialog(List<String> options, IClick click,boolean isNeedBottomButton,List<Integer> iconList) {
+        mAdapter = new BottomDialogAdapter(options, click,isNeedBottomButton,iconList);
     }
 
     public SelectBottomDialog setHeight(int height) {

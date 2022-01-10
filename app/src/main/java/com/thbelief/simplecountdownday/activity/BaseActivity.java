@@ -2,15 +2,18 @@ package com.thbelief.simplecountdownday.activity;
 
 import android.os.Build;
 import android.os.Bundle;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 
 import com.jaredrummler.cyanea.app.CyaneaAppCompatActivity;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
 /**
  * Author:thbelief
@@ -29,6 +32,15 @@ public class BaseActivity extends CyaneaAppCompatActivity {
         super.onCreate(savedInstanceState);
         initActionBar();
         immersiveStatusBar();
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        VibrationHelper.clickVibration();
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+        }
+        return super.onOptionsItemSelected(item);
     }
 
     public void initActionBar() {

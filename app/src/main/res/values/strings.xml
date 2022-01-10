@@ -39,4 +39,6 @@
     <string name="tips_life_progress">输入完整之后开关可用</string>
     <string name="tips_life_progress_enable">开关可用</string>
     <string name="tips_input_error_year">请输入本年之前时间</string>
+    <string name="create_memorial_day">创建纪念日</string>
+    <string name="create_count_down_day">创建倒数日</string>
 </resources>

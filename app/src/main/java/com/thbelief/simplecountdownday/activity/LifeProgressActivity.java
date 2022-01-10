@@ -85,14 +85,6 @@ public class LifeProgressActivity extends BaseActivity {
         return !"".contentEquals(mBirthYear.getText()) && !"".contentEquals(mPredictYear.getText());
     }
 
-    @Override
-    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        if (item.getItemId() == android.R.id.home) {
-            finish();
-        }
-        return super.onOptionsItemSelected(item);
-    }
-
     private TextWatcher mTextWatcher1 = new TextWatcher() {
         @Override
         public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {

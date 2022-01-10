@@ -9,8 +9,4 @@ package com.thbelief.simplecountdownday.interfaces;
  */
 public interface IClick {
     void itemClick(int pos);
-
-    void sureClick();
-
-    void cancelClick();
 }
