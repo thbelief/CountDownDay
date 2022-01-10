@@ -1,5 +1,6 @@
 package com.thbelief.simplecountdownday.fragment;
 
+import android.app.Activity;
 import android.content.Context;
 
 import androidx.annotation.NonNull;
@@ -34,11 +35,13 @@ public class BaseFragment extends Fragment {
     public Unbinder mUnbinder;
 
     public Context mContext;
+    public Activity mActivity;
 
     @Override
     public void onAttach(@NonNull Context context) {
         super.onAttach(context);
         mContext = context;
+        mActivity = getActivity();
     }
 
     @Override

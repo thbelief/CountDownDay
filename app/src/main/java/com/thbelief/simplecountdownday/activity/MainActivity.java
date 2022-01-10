@@ -19,6 +19,7 @@ import com.thbelief.simplecountdownday.fragment.LifeFragment;
 import com.thbelief.simplecountdownday.fragment.SettingsFragment;
 import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
+import com.thbelief.simplecountdownday.utils.TodayDateHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
 import java.util.ArrayList;
