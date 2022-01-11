@@ -9,7 +9,6 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
-import com.jcodecraeer.xrecyclerview.ProgressStyle;
 import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.thbelief.simplecountdownday.R;
 import com.thbelief.simplecountdownday.adapter.FragmentTodayAdapter;
@@ -43,6 +42,12 @@ public class TodayFragment extends BaseFragment implements IDataLoad {
         TodayDateHelper.requestData(this);
         mLoadingView.show();
 
+        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        mRecyclerView.setLayoutManager(layoutManager);
+        mRecyclerView.setPullRefreshEnabled(false);
+        mRecyclerView.setLoadingMoreEnabled(false);
+
         return view;
     }
 
@@ -56,13 +61,13 @@ public class TodayFragment extends BaseFragment implements IDataLoad {
     }
 
     private void initRecyclerView() {
-        LinearLayoutManager layoutManager = new LinearLayoutManager(mContext);
-        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-        mRecyclerView.setLayoutManager(layoutManager);
-        mAdapter = new FragmentTodayAdapter(TodayDateHelper.getData());
-        mRecyclerView.setAdapter(mAdapter);
-        mRecyclerView.setPullRefreshEnabled(false);
-        mRecyclerView.setLoadingMoreEnabled(false);
+        if (mRecyclerView != null) {
+            mAdapter = new FragmentTodayAdapter(TodayDateHelper.getData());
+            mRecyclerView.setAdapter(mAdapter);
+            mLoadingView.smoothToHide();
+            mLoadingView.setVisibility(View.GONE);
+            mRecyclerView.setVisibility(View.VISIBLE);
+        }
     }
 
     @Override
@@ -74,9 +79,6 @@ public class TodayFragment extends BaseFragment implements IDataLoad {
             @Override
             public void run() {
                 initRecyclerView();
-                mLoadingView.smoothToHide();
-                mLoadingView.setVisibility(View.GONE);
-                mRecyclerView.setVisibility(View.VISIBLE);
             }
         });
     }

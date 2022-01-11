@@ -3,6 +3,10 @@ package com.thbelief.simplecountdownday.activity;
 import android.os.Bundle;
 
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import butterknife.ButterKnife;
 

@@ -14,11 +14,15 @@ import com.bitvale.switcher.SwitcherX;
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.ToastyUtil;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.Calendar;
 import java.util.Objects;

@@ -13,7 +13,12 @@ import androidx.core.content.ContextCompat;
 
 import com.jaredrummler.cyanea.app.CyaneaAppCompatActivity;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
+
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * Author:thbelief
@@ -32,6 +37,13 @@ public class BaseActivity extends CyaneaAppCompatActivity {
         super.onCreate(savedInstanceState);
         initActionBar();
         immersiveStatusBar();
+        //EventBus.getDefault().register(this);
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        //EventBus.getDefault().unregister(this);
     }
 
     @Override

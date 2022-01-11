@@ -5,6 +5,7 @@ import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
+import com.gauravk.bubblenavigation.BubbleToggleView;
 import com.thbelief.simplecountdownday.adapter.FragmentPagerAdapter;
 
 import androidx.viewpager.widget.ViewPager;
@@ -19,8 +20,12 @@ import com.thbelief.simplecountdownday.fragment.LifeFragment;
 import com.thbelief.simplecountdownday.fragment.SettingsFragment;
 import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
-import com.thbelief.simplecountdownday.utils.TodayDateHelper;
+import com.thbelief.simplecountdownday.model.MessageEvent;
+import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
+
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -41,8 +46,11 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
     BubbleNavigationConstraintView mBubbleNavigation;
     @BindView(R.id.view_pager)
     ViewPager mViewPager;
+    @BindView(R.id.item_today)
+    BubbleToggleView mItemToday;
 
     private List<Fragment> mFragmentList = new ArrayList<>();
+    private FragmentPagerAdapter mAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -67,10 +75,13 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
         mFragmentList.add(new HomePageFragment());
         mFragmentList.add(new LifeFragment());
         mFragmentList.add(new HistoryFragment());
-        mFragmentList.add(new TodayFragment());
+        if (SharedPreferenceHelper.isHistoryToday()) {
+            mItemToday.setVisibility(View.VISIBLE);
+            mFragmentList.add(new TodayFragment());
+        }
         mFragmentList.add(new SettingsFragment());
-        FragmentPagerAdapter fragmentPagerAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
-        mViewPager.setAdapter(fragmentPagerAdapter);
+        mAdapter = new FragmentPagerAdapter(getSupportFragmentManager(), mFragmentList);
+        mViewPager.setAdapter(mAdapter);
         mViewPager.setOnPageChangeListener(new ViewPagerAdapter(this));
         mViewPager.setCurrentItem(0);
     }

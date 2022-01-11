@@ -17,6 +17,10 @@ import es.dmoral.toasty.Toasty;
 public class ToastyUtil {
     private static Context mContext = Application.getInstance();
 
+    public static void success(String info) {
+        Toasty.success(mContext, info).show();
+    }
+
     public static void error(String info) {
         Toasty.error(mContext, info).show();
     }

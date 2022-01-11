@@ -20,6 +20,7 @@ public class SharedPreferenceHelper {
     private static final String KEY_VIBRATION = "vibration";
     private static final String KEY_BIRTH_YEAR = "birth_year";
     private static final String KEY_PREDICT_YEAR = "predict_year";
+    private static final String KEY_HISTORY_TODAY = "history_today";
 
     public static boolean isWeekStartFromSunday() {
         return mSpf.getBoolean(KEY_WEEK_START_FROM_SUNDAY, false);
@@ -68,6 +69,16 @@ public class SharedPreferenceHelper {
     public static void setPredictYear(int value) {
         SharedPreferences.Editor editor = mSpf.edit();
         editor.putInt(KEY_PREDICT_YEAR, value);
+        editor.apply();
+    }
+
+    public static boolean isHistoryToday() {
+        return mSpf.getBoolean(KEY_HISTORY_TODAY, true);
+    }
+
+    public static void setHistoryToday(boolean value) {
+        SharedPreferences.Editor editor = mSpf.edit();
+        editor.putBoolean(KEY_HISTORY_TODAY, value);
         editor.apply();
     }
 }
