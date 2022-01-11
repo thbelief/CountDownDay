@@ -42,4 +42,8 @@
     <string name="create_memorial_day">创建纪念日</string>
     <string name="create_count_down_day">创建倒数日</string>
     <string name="just_display_today">历史上的今天</string>
+    <string name="about">关于</string>
+    <string name="open_today">历史上的今天</string>
+    <string name="title_close_open_today">注意</string>
+    <string name="summary_close_open_today">是否重启应用使设置生效？</string>
 </resources>
