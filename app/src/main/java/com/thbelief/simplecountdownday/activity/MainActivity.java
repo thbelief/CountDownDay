@@ -20,12 +20,8 @@ import com.thbelief.simplecountdownday.fragment.LifeFragment;
 import com.thbelief.simplecountdownday.fragment.SettingsFragment;
 import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
-import com.thbelief.simplecountdownday.model.MessageEvent;
-import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
+import com.thbelief.simplecountdownday.utils.TodayDateHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
-
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
 
 import java.util.ArrayList;
 import java.util.List;
