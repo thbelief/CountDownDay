@@ -21,6 +21,7 @@ import com.thbelief.simplecountdownday.activity.LifeProgressActivity;
 import com.thbelief.simplecountdownday.application.Application;
 import com.thbelief.simplecountdownday.dialog.SelectBottomDialog;
 import com.thbelief.simplecountdownday.interfaces.IClick;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
@@ -116,6 +117,11 @@ public class SettingsFragment extends BaseFragment implements IClick {
         ((TextView) mViewMenuWeekStart.findViewById(R.id.content)).setText(SharedPreferenceHelper.isWeekStartFromSunday() ? mOptions.get(1) : mOptions.get(0));
         mVibrationSwitch.setChecked(SharedPreferenceHelper.isVibration(), true);
         mOpenToday.setChecked(SharedPreferenceHelper.isHistoryToday(), true);
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
+
     }
 
     @Override

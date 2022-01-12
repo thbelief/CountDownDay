@@ -13,6 +13,7 @@ import androidx.cardview.widget.CardView;
 
 import com.daimajia.numberprogressbar.NumberProgressBar;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
@@ -78,6 +79,11 @@ public class LifeFragment extends BaseFragment {
         } else {
             mLifeCardView.setVisibility(View.GONE);
         }
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
+
     }
 
     @Override

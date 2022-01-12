@@ -1,14 +1,8 @@
 package com.thbelief.simplecountdownday.activity;
 
-import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.TextView;
-
-import androidx.annotation.NonNull;
 
 import com.bitvale.switcher.SwitcherX;
 import com.daimajia.numberprogressbar.NumberProgressBar;
@@ -21,11 +15,7 @@ import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.ToastyUtil;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import java.util.Calendar;
-import java.util.Objects;
 
 import app.futured.donut.DonutProgressView;
 import butterknife.BindView;
@@ -58,6 +48,11 @@ public class LifeProgressActivity extends BaseActivity {
         setContentView(R.layout.activity_life_progress);
 
         ButterKnife.bind(this);
+
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
 
     }
 

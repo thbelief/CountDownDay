@@ -13,6 +13,7 @@ import com.jcodecraeer.xrecyclerview.XRecyclerView;
 import com.thbelief.simplecountdownday.R;
 import com.thbelief.simplecountdownday.adapter.FragmentTodayAdapter;
 import com.thbelief.simplecountdownday.interfaces.IDataLoad;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.utils.TodayDateHelper;
 import com.wang.avi.AVLoadingIndicatorView;
 
@@ -49,6 +50,11 @@ public class TodayFragment extends BaseFragment implements IDataLoad {
         mRecyclerView.setLoadingMoreEnabled(false);
 
         return view;
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
+
     }
 
     @Override

@@ -13,8 +13,12 @@ import androidx.core.content.ContextCompat;
 
 import com.jaredrummler.cyanea.app.CyaneaAppCompatActivity;
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
+import org.greenrobot.eventbus.EventBus;
+import org.greenrobot.eventbus.Subscribe;
+import org.greenrobot.eventbus.ThreadMode;
 
 /**
  * Author:thbelief
@@ -23,7 +27,7 @@ import com.thbelief.simplecountdownday.utils.VibrationHelper;
  *
  * @author thbelief
  */
-public class BaseActivity extends CyaneaAppCompatActivity {
+public abstract class BaseActivity extends CyaneaAppCompatActivity {
 
     public boolean mIsDisplayBackIcon = false;
     public int mStatusColor = R.color.cyanea_primary;
@@ -33,14 +37,26 @@ public class BaseActivity extends CyaneaAppCompatActivity {
         super.onCreate(savedInstanceState);
         initActionBar();
         immersiveStatusBar();
-        //EventBus.getDefault().register(this);
+        EventBus.getDefault().register(this);
     }
 
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        //EventBus.getDefault().unregister(this);
+        EventBus.getDefault().unregister(this);
     }
+
+    @Subscribe(threadMode = ThreadMode.MAIN)
+    public void onMessageEvent(MessageEvent event) {
+        onMessage(event);
+    }
+
+    /**
+     * event事件分发
+     *
+     * @param event
+     */
+    public abstract void onMessage(MessageEvent event);
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

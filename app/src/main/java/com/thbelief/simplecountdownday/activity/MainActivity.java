@@ -20,8 +20,8 @@ import com.thbelief.simplecountdownday.fragment.LifeFragment;
 import com.thbelief.simplecountdownday.fragment.SettingsFragment;
 import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
-import com.thbelief.simplecountdownday.utils.TodayDateHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
 import java.util.ArrayList;
@@ -66,6 +66,11 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
         });
 
         initViewPager();
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
+
     }
 
     private void initViewPager() {

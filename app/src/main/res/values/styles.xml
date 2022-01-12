@@ -18,7 +18,8 @@
     </style>
 
     <style name="CardViewStyle">
-        <item name="cardBackgroundColor">@color/cyanea_accent</item>
+        <item name="strokeWidth">@dimen/dp_5</item>
+        <item name="cardBackgroundColor">@color/cyanea_background_light</item>
         <item name="cardCornerRadius">@dimen/dp_30</item>
         <item name="cardUseCompatPadding">true</item>
         <item name="contentPadding">@dimen/dp_10</item>

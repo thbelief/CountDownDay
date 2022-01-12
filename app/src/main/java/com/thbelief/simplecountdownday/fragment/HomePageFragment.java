@@ -16,6 +16,7 @@ import com.thbelief.simplecountdownday.activity.LifeProgressActivity;
 import com.thbelief.simplecountdownday.activity.MemorialDayActivity;
 import com.thbelief.simplecountdownday.dialog.SelectBottomDialog;
 import com.thbelief.simplecountdownday.interfaces.IClick;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
@@ -58,6 +59,11 @@ public class HomePageFragment extends BaseFragment implements IClick {
             mDialog = new SelectBottomDialog(mOptions, this, false, mIcons);
             mDialog.setFragmentManager(getFragmentManager()).show();
         });
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
+
     }
 
     @Override

@@ -5,9 +5,6 @@ import android.os.Bundle;
 import com.thbelief.simplecountdownday.R;
 import com.thbelief.simplecountdownday.model.MessageEvent;
 
-import org.greenrobot.eventbus.Subscribe;
-import org.greenrobot.eventbus.ThreadMode;
-
 import butterknife.ButterKnife;
 
 /**
@@ -26,6 +23,11 @@ public class MemorialDayActivity extends BaseActivity {
         setContentView(R.layout.activity_memorial_day);
 
         ButterKnife.bind(this);
+
+    }
+
+    @Override
+    public void onMessage(MessageEvent event) {
 
     }
 }

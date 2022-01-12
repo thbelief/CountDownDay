@@ -9,6 +9,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 
 import com.thbelief.simplecountdownday.R;
+import com.thbelief.simplecountdownday.model.MessageEvent;
 
 import butterknife.ButterKnife;
 
@@ -29,4 +30,8 @@ public class HistoryFragment extends BaseFragment {
         return view;
     }
 
+    @Override
+    public void onMessage(MessageEvent event) {
+
+    }
 }
