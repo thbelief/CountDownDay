@@ -36,8 +36,10 @@
         <entry key="app/src/main/res/drawable/icon.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/rounded_rect_white.xml" value="0.3020833333333333" />
         <entry key="app/src/main/res/drawable/select_press.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shape_circle.xml" value="0.181" />
         <entry key="app/src/main/res/drawable/shape_circle_blue.xml" value="0.205" />
         <entry key="app/src/main/res/drawable/shape_circle_bottom.xml" value="0.205" />
+        <entry key="app/src/main/res/drawable/shape_circle_grey.xml" value="0.181" />
         <entry key="app/src/main/res/drawable/shape_item_bottom.xml" value="0.205" />
         <entry key="app/src/main/res/layout/activity_life_progress.xml" value="0.1284056508577195" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
