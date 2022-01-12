@@ -54,7 +54,7 @@ public class SettingsFragment extends BaseFragment implements IClick {
     SwitcherX mOpenToday;
     private SettingsFragment mFragment = this;
     private SelectBottomDialog mDialog;
-    private List<String> mOptions = new LinkedList<>(Arrays.asList(ResourceHelper.getString(R.string.saturday), ResourceHelper.getString(R.string.sunday)));
+    private List<String> mOptions = new LinkedList<>(Arrays.asList(ResourceHelper.getString(R.string.monday), ResourceHelper.getString(R.string.sunday)));
 
     @Nullable
     @Override

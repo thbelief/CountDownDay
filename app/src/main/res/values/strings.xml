@@ -10,7 +10,7 @@
     <string name="year">本年</string>
     <string name="week_beginning_day">周起始日</string>
     <string name="week_beginning_day_summary">选择周六或者周日作为周起始日</string>
-    <string name="saturday">周六</string>
+    <string name="monday">周一</string>
     <string name="sunday">周日</string>
     <string name="sure">确定</string>
     <string name="cancel">取消</string>

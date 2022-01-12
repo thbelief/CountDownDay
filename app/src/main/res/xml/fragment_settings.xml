@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools">
     <PreferenceCategory>
         <Preference
-            android:defaultValue="@string/saturday"
+            android:defaultValue="@string/monday"
             android:iconSpaceReserved="false"
             android:key="week_start"
             android:summary="@string/week_beginning_day_summary"

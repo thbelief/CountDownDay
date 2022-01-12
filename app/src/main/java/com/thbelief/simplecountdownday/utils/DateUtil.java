@@ -25,7 +25,7 @@ public class DateUtil {
     }
 
     public static int getProportionWeek() {
-        int curDay = SharedPreferenceHelper.isWeekStartFromSunday() ? mCalendar.get(Calendar.DAY_OF_WEEK) : mCalendar.get(Calendar.DAY_OF_WEEK) + 1;
+        int curDay = SharedPreferenceHelper.isWeekStartFromSunday() ? mCalendar.get(Calendar.DAY_OF_WEEK) : mCalendar.get(Calendar.DAY_OF_WEEK) - 1;
         return (int) Math.rint((((double) curDay) / 7.00) * 100.00);
     }
 
