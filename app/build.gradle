@@ -1,5 +1,6 @@
 plugins {
     id 'com.android.application'
+    id 'org.greenrobot.greendao'
 }
 
 android {
@@ -24,6 +25,13 @@ android {
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
+    }
+    greendao {
+        schemaVersion 1
+        daoPackage 'com.thbelief.simplecountdownday.database.greenDao.db'
+        targetGenDir 'src/main/java'
+        generateTests false
+        targetGenDirTests 'src/main/java'
     }
 }
 
@@ -74,4 +82,14 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.1.1'
 
     implementation 'com.github.li-xiaojun:XPopup:2.7.3'
+
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:Common:4.1.6'
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:WheelView:4.1.6'
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:ColorPicker:4.1.6'
+    implementation 'com.github.gzu-liyujiang.AndroidPicker:CalendarPicker:4.1.6'
+
+    implementation 'org.greenrobot:greendao:3.3.0'
+
+    implementation 'com.github.mcxtzhang:SwipeDelMenuLayout:V1.3.0'
+
 }

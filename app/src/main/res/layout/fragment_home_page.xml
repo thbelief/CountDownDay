@@ -6,6 +6,11 @@
     android:gravity="center"
     android:orientation="vertical">
 
+    <com.jcodecraeer.xrecyclerview.XRecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
     <com.github.clans.fab.FloatingActionMenu
         android:id="@+id/float_button_menu"
         android:layout_width="wrap_content"

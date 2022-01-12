@@ -2,6 +2,8 @@ package com.thbelief.simplecountdownday.utils;
 
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
 
@@ -18,6 +20,21 @@ public class DateUtil {
     static {
         mCalendar = Calendar.getInstance();
         mCalendar.setTime(new Date());
+    }
+
+    public static String formatDate(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        return simpleDateFormat.format(date);
+    }
+
+    public static Date getData(String date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
+        try {
+            return simpleDateFormat.parse(date);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return new Date();
     }
 
     public static int getProportionDay() {
