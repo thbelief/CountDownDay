@@ -61,4 +61,6 @@
     <string name="default_text">默认</string>
     <string name="save_success">保存成功</string>
     <string name="warning_title">标题不允许为空</string>
+    <string name="delete">删除</string>
+    <string name="edit">编辑</string>
 </resources>

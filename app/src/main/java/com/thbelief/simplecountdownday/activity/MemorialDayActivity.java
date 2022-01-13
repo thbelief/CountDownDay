@@ -3,6 +3,7 @@ package com.thbelief.simplecountdownday.activity;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
@@ -10,6 +11,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 
 import com.bitvale.switcher.SwitcherX;
 import com.github.gzuliyujiang.calendarpicker.CalendarPicker;
@@ -69,6 +71,8 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
     private List<String> mOptions = new LinkedList<>(Arrays.asList(ResourceHelper.getString(R.string.time_unit_2),
             ResourceHelper.getString(R.string.time_unit_3), ResourceHelper.getString(R.string.time_unit_4)));
     private int mCurColor = R.color.blue_bg_light;
+    public static DataModel mModel;
+    private boolean mIsUpdate;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -79,7 +83,12 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
 
         ButterKnife.bind(this);
 
-        mDateTv.setText(DateUtil.formatDate(new Date()));
+        if (mModel == null) {
+            mDateTv.setText(DateUtil.formatDate(new Date()));
+        } else {
+            mIsUpdate = true;
+            initData();
+        }
     }
 
     @Override
@@ -106,8 +115,34 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
         return super.onOptionsItemSelected(item);
     }
 
+    private void initData() {
+        if (mModel == null) {
+            return;
+        }
+        ActionBar actionBar = getSupportActionBar();
+        if (actionBar != null) {
+            actionBar.setTitle(ResourceHelper.getString(R.string.edit));
+
+        }
+        mTitleEdit.setText(mModel.getTitle());
+        mDateTv.setText(mModel.getDate());
+        mUnitTv.setText(mOptions.get(mModel.getUnit()));
+        mClockSwitchX.setChecked(mModel.getIsClock(), true);
+        Drawable drawable = ResourceHelper.getDrawable(R.drawable.shape_circle);
+        drawable.setColorFilter(mModel.getColorId(), PorterDuff.Mode.SRC_ATOP);
+        mColorImage.setImageDrawable(drawable);
+        mCurColor = mModel.getColorId();
+        mContentEdit.setText(mModel.getContent());
+        mDisplaySwitch.setChecked(mModel.getIsDisplay(), true);
+    }
+
     private void saveData() {
-        DataModel model = new DataModel();
+        DataModel model = null;
+        if (mIsUpdate) {
+            model = mModel;
+        } else {
+            model = new DataModel();
+        }
         model.setTitle(mTitleEdit.getText().toString());
         model.setDate(mDateTv.getText().toString());
         model.setUnit(mOptions.indexOf(mUnitTv.getText()));
@@ -115,7 +150,13 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
         model.setColorId(mCurColor);
         model.setContent(mContentEdit.getText().toString());
         model.setDisplay(mDisplaySwitch.isChecked());
-        Application.getDaoSession().insert(model);
+        if (mIsUpdate) {
+            Application.getDaoSession().insertOrReplace(model);
+        } else {
+            Application.getDaoSession().insert(model);
+        }
+        mIsUpdate = false;
+        mModel = null;
     }
 
     private boolean isAvailable() {
@@ -127,6 +168,7 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
     protected void onStart() {
         super.onStart();
         mDateLayout.setOnClickListener(v -> {
+            VibrationHelper.clickVibration();
             CalendarPicker picker = new CalendarPicker(this);
             picker.setRangeDateOnFuture(12);
             int singleTimeInMillis = (int) System.currentTimeMillis();
@@ -140,19 +182,22 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
             picker.show();
         });
         mUnitLayout.setOnClickListener(v -> {
+            VibrationHelper.clickVibration();
             mDialog = new SelectBottomDialog(mOptions, this, false, null);
             mDialog.setFragmentManager(getSupportFragmentManager()).show();
         });
         mClockSwitchX.setOnCheckedChangeListener(state -> {
-
+            VibrationHelper.clickVibration();
             return null;
         });
         mColorLayout.setOnClickListener(v -> {
+            VibrationHelper.clickVibration();
             ColorPicker picker = new ColorPicker(this);
             picker.setOnColorPickListener(new OnColorPickedListener() {
                 @Override
                 public void onColorPicked(int pickedColor) {
                     mCurColor = pickedColor;
+                    VibrationHelper.clickVibration();
                     Drawable drawable = ResourceHelper.getDrawable(R.drawable.shape_circle);
                     drawable.setColorFilter(pickedColor, PorterDuff.Mode.SRC_ATOP);
                     mColorImage.setImageDrawable(drawable);
@@ -160,6 +205,13 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
             });
             picker.show();
         });
+    }
+
+    @Override
+    protected void onDestroy() {
+        mModel = null;
+        mIsUpdate = false;
+        super.onDestroy();
     }
 
     @Override

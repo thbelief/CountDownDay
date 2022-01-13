@@ -50,6 +50,15 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         notifyDataSetChanged();
     }
 
+    public DataModel getModel(int pos) {
+        return mData.get(pos);
+    }
+
+    public void notifyPositionRemove(int pos) {
+        mData.remove(pos);
+        notifyItemRemoved(pos);
+    }
+
     @NonNull
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
