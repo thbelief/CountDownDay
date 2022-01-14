@@ -1,11 +1,13 @@
 package com.thbelief.simplecountdownday.activity;
 
+import android.Manifest;
 import android.os.Bundle;
 import android.view.View;
 
 import androidx.fragment.app.Fragment;
 
 import com.gauravk.bubblenavigation.BubbleToggleView;
+import com.tbruyelle.rxpermissions3.RxPermissions;
 import com.thbelief.simplecountdownday.adapter.FragmentPagerAdapter;
 
 import androidx.viewpager.widget.ViewPager;
@@ -22,6 +24,7 @@ import com.thbelief.simplecountdownday.fragment.TodayFragment;
 import com.thbelief.simplecountdownday.interfaces.IViewPagerChange;
 import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.storage.SharedPreferenceHelper;
+import com.thbelief.simplecountdownday.utils.ToastyUtil;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
 
 import java.util.ArrayList;
@@ -66,6 +69,16 @@ public class MainActivity extends BaseActivity implements IViewPagerChange {
         });
 
         initViewPager();
+
+        mRxPermissions.request(Manifest.permission.READ_CALENDAR,
+                Manifest.permission.WRITE_CALENDAR)
+                .subscribe(granted -> {
+                    if (granted) {
+
+                    } else {
+
+                    }
+                });
     }
 
     @Override

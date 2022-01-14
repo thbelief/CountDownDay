@@ -12,6 +12,7 @@ import androidx.appcompat.app.ActionBar;
 import androidx.core.content.ContextCompat;
 
 import com.jaredrummler.cyanea.app.CyaneaAppCompatActivity;
+import com.tbruyelle.rxpermissions3.RxPermissions;
 import com.thbelief.simplecountdownday.R;
 import com.thbelief.simplecountdownday.model.MessageEvent;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
@@ -31,6 +32,8 @@ public abstract class BaseActivity extends CyaneaAppCompatActivity {
 
     public boolean mIsDisplayBackIcon = false;
     public int mStatusColor = R.color.cyanea_primary;
+
+    final RxPermissions mRxPermissions = new RxPermissions(this);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

@@ -18,10 +18,14 @@ import com.thbelief.simplecountdownday.model.DataModel;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 
+import java.time.Duration;
+import java.time.Month;
 import java.time.temporal.ChronoUnit;
 import java.time.temporal.Temporal;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
+import java.util.GregorianCalendar;
 import java.util.List;
 
 /**
@@ -100,7 +104,10 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O) {
             cur = curDate.toInstant();
             target = targetDate.toInstant();
-            day = ChronoUnit.DAYS.between(cur, target);
+            day = Duration.between(cur, target).toDays();
+            if (day != 0) {
+                week = day / 7;
+            }
         }
         String result = "";
         switch (type) {
@@ -108,10 +115,11 @@ public class HomePageAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolde
                 result = String.valueOf(day) + ResourceHelper.getString(R.string.time_unit_2);
                 break;
             case 1:
-                result = String.valueOf(week) + ResourceHelper.getString(R.string.time_unit_3);
-                break;
-            case 2:
-                result = String.valueOf(month) + ResourceHelper.getString(R.string.time_unit_4);
+                if (week == 0) {
+                    result = String.valueOf(day) + ResourceHelper.getString(R.string.time_unit_2);
+                } else {
+                    result = String.valueOf(week) + ResourceHelper.getString(R.string.time_unit_3) + String.valueOf(day % week) + ResourceHelper.getString(R.string.time_unit_2);
+                }
                 break;
             default:
                 break;

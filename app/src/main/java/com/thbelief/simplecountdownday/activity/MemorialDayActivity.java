@@ -1,5 +1,6 @@
 package com.thbelief.simplecountdownday.activity;
 
+import android.Manifest;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
@@ -24,11 +25,15 @@ import com.thbelief.simplecountdownday.application.Application;
 import com.thbelief.simplecountdownday.dialog.SelectBottomDialog;
 import com.thbelief.simplecountdownday.interfaces.IClick;
 import com.thbelief.simplecountdownday.model.DataModel;
+import com.thbelief.simplecountdownday.model.MessageContents;
 import com.thbelief.simplecountdownday.model.MessageEvent;
+import com.thbelief.simplecountdownday.utils.CalendarUtil;
 import com.thbelief.simplecountdownday.utils.DateUtil;
 import com.thbelief.simplecountdownday.utils.ResourceHelper;
 import com.thbelief.simplecountdownday.utils.ToastyUtil;
 import com.thbelief.simplecountdownday.utils.VibrationHelper;
+
+import org.greenrobot.eventbus.EventBus;
 
 import java.util.Arrays;
 import java.util.Date;
@@ -69,7 +74,7 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
 
     private SelectBottomDialog mDialog;
     private List<String> mOptions = new LinkedList<>(Arrays.asList(ResourceHelper.getString(R.string.time_unit_2),
-            ResourceHelper.getString(R.string.time_unit_3), ResourceHelper.getString(R.string.time_unit_4)));
+            ResourceHelper.getString(R.string.time_unit_3)));
     private int mCurColor = R.color.blue_bg_light;
     public static DataModel mModel;
     private boolean mIsUpdate;
@@ -154,6 +159,7 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
             Application.getDaoSession().insertOrReplace(model);
         } else {
             Application.getDaoSession().insert(model);
+            CalendarUtil.addCalendarEvent(model.getTitle(),model.getContent(),System.currentTimeMillis());
         }
         mIsUpdate = false;
         mModel = null;
@@ -188,6 +194,15 @@ public class MemorialDayActivity extends BaseActivity implements IClick {
         });
         mClockSwitchX.setOnCheckedChangeListener(state -> {
             VibrationHelper.clickVibration();
+            if (!mRxPermissions.isGranted(Manifest.permission.READ_CALENDAR) ||
+                    !mRxPermissions.isGranted(Manifest.permission.WRITE_CALENDAR)) {
+                ToastyUtil.error(ResourceHelper.getString(R.string.tip_calendar_permission));
+                mRxPermissions.request(Manifest.permission.READ_CALENDAR,
+                        Manifest.permission.WRITE_CALENDAR)
+                        .subscribe(granted -> {
+
+                        });
+            }
             return null;
         });
         mColorLayout.setOnClickListener(v -> {
